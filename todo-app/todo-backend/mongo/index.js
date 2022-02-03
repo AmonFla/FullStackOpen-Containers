@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
 const Todo = require('./models/Todo')
-const redis = require('../redis')
 
 const { MONGO_URL } = require('../util/config')
 

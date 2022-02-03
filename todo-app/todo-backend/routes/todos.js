@@ -1,10 +1,12 @@
 const express = require('express');
 const { Todo } = require('../mongo')
+const redis = require('../redis')
+
 const router = express.Router();
 
 /* GET todos listing. */
 router.get('/', async (_, res) => {
-  const todos = await Todo.find({})
+  const todos = await Todo.find({})   
   res.send(todos);
 });
 
@@ -14,6 +16,7 @@ router.post('/', async (req, res) => {
     text: req.body.text,
     done: false
   })
+  redis.setAsync('added_todos', Number(await redis.getAsync('added_todos'))+1)
   res.send(todo);
 });
 
