@@ -1,0 +1,62 @@
+Script started on 2022-02-03 18:57:59-03:00 [TERM="xterm-256color" TTY="/dev/pts/7" COLUMNS="271" LINES="67"]
+]0;fbonnin@fbonnin-Inspiron-5567: ~/Escritorio/FullStackOpen-Containers/script-answers[01;32mfbonnin@fbonnin-Inspiron-5567[00m:[01;34m~/Escritorio/FullStackOpen-Containers/script-answers[00m$ docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED             STATUS             PORTS                                         NAMES
+502d1452fd6c   nginx     "/docker-entrypoint.…"   About an hour ago   Up About an hour   0.0.0.0:8080->80/tcp, :::8080->80/tcp         ecstatic_hamilton
+75df180ed7e5   mongo     "docker-entrypoint.s…"   2 hours ago         Up 49 seconds      0.0.0.0:3456->27017/tcp, :::3456->27017/tcp   todo-backend_mongo_1
+]0;fbonnin@fbonnin-Inspiron-5567: ~/Escritorio/FullStackOpen-Containers/script-answers[01;32mfbonnin@fbonnin-Inspiron-5567[00m:[01;34m~/Escritorio/FullStackOpen-Containers/script-answers[00m$ docker exec -it todo-backend_mongo_1 v[Kbash
+]0;root@75df180ed7e5: /root@75df180ed7e5:/# mongo -u root -p example
+MongoDB shell version v5.0.6
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("79037db2-518e-4d00-ba52-3c6de21eb08f") }
+MongoDB server version: 5.0.6
+================
+Warning: the "mongo" shell has been superseded by "mongosh",
+which delivers improved usability and compatibility.The "mongo" shell has been deprecated and will be removed in
+an upcoming release.
+For installation instructions, see
+https://docs.mongodb.com/mongodb-shell/install/
+================
+---
+The server generated these startup warnings when booting: 
+        2022-02-03T21:57:16.119+00:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> show dbs[3G[Jshow dbs[11G
+admin         0.000GB
+config        0.000GB
+local         0.000GB
+the_database  0.000GB
+> use the [3G[Juse the[10G_database[3G[Juse the_database[19G
+switched to db the_database
+> show collections[3G[Jshow collections[19G
+todos
+> db.todo.find({})[3G[Jdb.todo.find({})[19G
+> [3G[Jdb.todo.find({})[19G[3G[Jdb.todo.find[1;34m([0m{})[18G[3G[Jdb.todo.find([1;34m{[0m})[17G[3G[Jdb.todo.find({[1;34m}[0m)[16G[3G[Jdb.todo.find({}[1;34m)[0m[15G[3G[Jdb.todo.find({})[14G[3G[Jdb.todo.find({})[13G[3G[Jdb.todo.find({})[12G[3G[Jdb.todo.find({})[11G[3G[Jdb.todo.find({})[10G[3G[Jdb.todos.find({})[11G[3G[Jdb.todos.find({})[20G
+{ "_id" : ObjectId("61fc384ec0c09080c32e4109"), "text" : "Write code2", "done" : false }
+{ "_id" : ObjectId("61fc384ec0c09080c32e410a"), "text" : "Learn about containers", "done" : false }
+> db.todos.insertOne( [3G[Jdb.todos.insertOne([22G{"text":"Increase the number of tools in my toolbelt", "done": true})[3G[Jdb.todos.insertOne({"text":"Increase the number of tools in my toolbelt", "done": true})[91G
+{
+	"acknowledged" : true,
+	"insertedId" : ObjectId("61fc5097b21d066a250d391f")
+}
+> [3G[Jdb.todos.insertOne({"text":"Increase the number of tools in my toolbelt", "done": true})[91G[3G[Jdb.todos.find({})[20G[3G[Jdb.todos.find({})[20G
+{ "_id" : ObjectId("61fc384ec0c09080c32e4109"), "text" : "Write code2", "done" : false }
+{ "_id" : ObjectId("61fc384ec0c09080c32e410a"), "text" : "Learn about containers", "done" : false }
+{ "_id" : ObjectId("61fc5097b21d066a250d391f"), "text" : "Increase the number of tools in my toolbelt", "done" : true }
+> exit[3G[Jexi[6G[3G[Jex[5G[3G[Je[4G[3G[J[3Gquit()[3G[Jquit()[9G
+]0;root@75df180ed7e5: /root@75df180ed7e5:/# exit
+exit
+]0;fbonnin@fbonnin-Inspiron-5567: ~/Escritorio/FullStackOpen-Containers/script-answers[01;32mfbonnin@fbonnin-Inspiron-5567[00m:[01;34m~/Escritorio/FullStackOpen-Containers/script-answers[00m$ exit
+exit
+
+Script done on 2022-02-03 19:01:25-03:00 [COMMAND_EXIT_CODE="0"]
