@@ -21,11 +21,9 @@ services:
     volumes:
       - ./todo-backend/redis_data:/data 
 
-  todo-backend-dev:                    # The name of the service, can be anything
-    image: todo-backend-dev # Declares which image to use
-    build:
-      context: ./todo-backend/  # The context will pick this directory as the "build context" .             
-      dockerfile: dev.Dockerfile # This will simply tell which dockerfile to read
+  todo-backend:                    # The name of the service, can be anything
+    image: todo-backend # Declares which image to use
+    build: ./todo-backend/  # The context will pick this directory as the "build context" 
     ports:                # Declares the ports to publish
       - 3001:3000
     volumes:
@@ -33,25 +31,21 @@ services:
     environment:
       - MONGO_URL=mongodb://the_username:the_password@mongo:27017/the_database
       - REDIS_URL=//redis:6379
-    container_name: todo-backend-dev-full # This will name the container todo-frontend-dev
+    container_name: todo-backend-full # This will name the container todo-frontend
 
-  todo-frontend-dev:
-    image: todo-frontend-dev
-    build:
-      context: ./todo-frontend/ # The context will pick this directory as the "build context"
-      dockerfile: dev.Dockerfile # This will simply tell which dockerfile to read
+  todo-frontend:
+    image: todo-frontend
+    build: ./todo-frontend/ 
     volumes:
       - ./todo-frontend/:/usr/src/app # The path can be relative, so ./ is enough to say "the same location as the docker-compose.yml"
     ports:
-      - 3000:3000
-    environment:
-      - REACT_APP_BACKEND_URL=http://localhost:8080/api
-    container_name: todo-frontend-dev-full # This will name the container todo-frontend-dev
+      - 3000:80 
+    container_name: todo-frontend-full # This will name the container todo-frontend
 
   nginx:
     image: nginx:1.20.1
     volumes:
-      - ./nginx.dev.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
     ports:
       - 8080:80
     container_name: reverse-proxy-full

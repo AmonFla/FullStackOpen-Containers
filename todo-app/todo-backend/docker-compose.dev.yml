@@ -21,7 +21,9 @@ services:
       - ./redis_data:/data
   todo-backend-dev:                    # The name of the service, can be anything
     image: todo-backend-dev # Declares which image to use
-    build: .              # Declares where to build if image is not found
+    build:
+      context: . # The context will pick this directory as the "build context" .             
+      dockerfile: dev.Dockerfile # This will simply tell which dockerfile to read
     ports:                # Declares the ports to publish
       - 3001:3000
     environment:
