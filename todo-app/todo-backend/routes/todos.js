@@ -46,7 +46,7 @@ singleRouter.put('/', async (req, res) => {
   const {id} = req.params
   const todo = await req.todo.update({
     text: req.body.text,
-    done: false
+    done: req.body.done
   })
   res.sendStatus(200); 
 });
