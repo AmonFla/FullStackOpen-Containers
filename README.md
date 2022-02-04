@@ -9,6 +9,7 @@ Ejercicios de la sección Containers del curso de https://fullstackopen.com
 * [Best Practices](https://snyk.io/blog/10-best-practices-to-containerize-nodejs-web-applications-with-docker/)
 * [DockerHub](https://hub.docker.com/)
 * [BusyBox](https://www.busybox.net/)
+* Implmentaciones de reverse proxy: Traefik, Caddy, Nginx, and Apache  
 
 ## Docker
 
