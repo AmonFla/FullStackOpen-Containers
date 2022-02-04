@@ -3,7 +3,7 @@ import TodoView from './Todos/TodoView'
 
 function App() {
   return (
-    <div className="App">
+    <div className="App"> 
       <TodoView />
     </div>
   );
