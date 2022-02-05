@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "cross-env NODE_ENV=test jest --verbose --runInBand",
-    "start": "cross-env NODE_ENV=production nodemon index.js",
+    "start": "node index.js",
     "dev": "nodemon index.js",
     "debug:all": "cross-env NODE_ENV=development DEBUG=* nodemon index.js",
     "debug:express": "cross-env NODE_ENV=development DEBUG=express:* nodemon index.js",

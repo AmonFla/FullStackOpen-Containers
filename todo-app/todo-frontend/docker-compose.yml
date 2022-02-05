@@ -4,8 +4,6 @@ services:
   todo-frontend:
     image: todo-frontend
     build:  . # The context will pick this directory as the "build context" 
-    volumes:
-      - ./:/usr/src/app # The path can be relative, so ./ is enough to say "the same location as the docker-compose.yml"
     ports: 
       - 3000:80
     environment:

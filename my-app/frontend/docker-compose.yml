@@ -1,0 +1,11 @@
+version: '3.3'
+
+services:
+  blog-frontend:
+    image: blog-frontend
+    build: . # The context will pick this directory as the "build context"
+    ports:
+      - 3000:80
+    environment:
+      - REACT_APP_BACKEND_URL=http://localhost:3001
+    container_name: blog-frontend # This will name the container blog-frontend-dev
