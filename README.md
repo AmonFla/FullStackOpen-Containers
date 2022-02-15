@@ -1,5 +1,5 @@
 # FullStackOpen-Containers
-Ejercicios de la sección Containers del curso de https://fullstackopen.com
+Exercises from the Containers section of the course https://fullstackopen.com
 
 
 ## Usefull Links
@@ -15,24 +15,24 @@ Ejercicios de la sección Containers del curso de https://fullstackopen.com
 
 ### Commands
 
-* script .... exit -> Grabar al consola
-* docker run -it image bash -> inicio el contenedor y accedo ejecuto un comando
-* docker run -p 3123:3000 image -> inicia el contendor y redirecciona el puerto 3123 del host al 3000 del docker
-* docker start container -> arranco un contenedor, -i me da acceso interactivo
-* docker kill container -> mato un contendor 
-* docker commit contanier new_name -> crea una nueva imagen
-* docker container cp ./index.js <container>:/usr/src/app/index.js -> copio un archivo local al contenedor
-* docker build --t imagen_name . -> construye una imagen con lo que esta en el directorio actual. Usando el archivo Dockerfile
-* docker exec -it container bash -> accedo al bash de un contenedor en ejecución
+* script .... exit -> Record the console
+* docker run -it image bash -> start the container and access run a command
+* docker run -p 3123:3000 image -> start the container and redirect host port 3123 to docker port 3000
+* docker start container -> I start a container, -i gives me interactive access
+* docker kill container -> kill a container
+* docker commit container new_name -> create a new image
+* docker container cp ./index.js <container>:/usr/src/app/index.js -> copy a local file to the container
+* docker build --t image_name . -> build an image with what is in the current directory. Using the Dockerfile
+* docker exec -it container bash -> access the bash of a running container
 
 
 ### Dockerfile
-Contenido del archivo
+File content
 
-* FROM imagen -> imagen de partida
-* WORKDIR ruta -> carpeta de trabajo
-* COPY org dest -> orden de copiado de archivos
-* RUN comando -> comandos a ejecutar durante el build
-* ENV variables -> agrego variables de entorno
-* USER usuario -> con que usuario ejecutar
-* CMD comando -> comando a ejecutar luego de arrancar el contenedor
+* FROM image -> starting image
+* WORKDIR path -> working folder
+* COPY org dest -> file copy order
+* RUN command -> commands to run during build
+* ENV variables -> I add environment variables
+* USER user -> with which user to execute
+* CMD command -> command to execute after starting the container
